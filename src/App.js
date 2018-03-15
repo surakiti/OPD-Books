@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-import './App.css';
-
+import Navbar from './navbar.js';
+import Content from './content.js';
+import Header from './header.js';
 class App extends Component {
-  render() {
-    return (
-      <div >
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">NEWS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">LOGIN</a>
-          </li>
-        </ul>
-        
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <div >
+                <Navbar/>
+                <Header />
+                <Content/>
+
+
+            </div>
+        );
+    }
 }
 
 export default App;
