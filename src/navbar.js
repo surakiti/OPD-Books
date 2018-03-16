@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-class navbar extends Component {
-  
+import { Input, Menu } from 'semantic-ui-react'
+export default class MenuExampleSecondary extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
+    const { activeItem } = this.state
+
     return (
-      <div >
-        
-        <nav class="navbar navbar-light bg-light justify-content-between">
-          
-          <a class="navbar-brand">Navbar</a>
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-          </nav>
-      
-      </div>
-    );
+      <Menu secondary>
+        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+        <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
+        </Menu.Menu>
+      </Menu>
+    )
   }
 }
-
-export default navbar;
